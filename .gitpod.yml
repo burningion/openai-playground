@@ -6,4 +6,4 @@ vscode:
     
 tasks:
   - name: OpenAI interface
-    command: pip install -r requirements.txt
+    command: pip install -r requirements.txt && python3 interactive-playground.py

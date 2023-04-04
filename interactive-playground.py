@@ -11,16 +11,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 class GPTPrompt(Static):
     """A widget to prompt for ChatGPT"""
-
-    def on_button_pressed(self, event: Button.Pressed) -> None:
-        button_id = event.button.Pressed
-        if event.button.id == "enter":
-            inny = self.query_one(Input)
-            prompt = inny.value
-            response = openai.ChatCompletion.create(model="gpt-4", messages=[
-                {"role": "user", "content": prompt}])
             
-
     def compose(self) -> ComposeResult:
         yield Input(placeholder="Enter your prompt")
         yield Button("Enter", id="enter", variant="primary")
@@ -38,12 +29,22 @@ class GPTResponse(Static):
 
     def on_key(self, event: events.Key) -> None:
         text_log = self.query_one(TextLog)
-        text_log.write(event)
+        # text_log.write(event)
 
 class GPTApp(App):
     """A Textual app to use GPT-4 from the command line"""
     CSS_PATH="interactive.css"
     BINDINGS = [("d", "toggle_dark", "Toggle dark mode")]
+
+    def on_button_pressed(self, event: Button.Pressed) -> None:
+        button_id = event.button.Pressed
+        if event.button.id == "enter":
+            inny = self.query_one(Input)
+            prompt = inny.value
+            response = openai.ChatCompletion.create(model="gpt-4", messages=[
+                {"role": "user", "content": prompt}])
+            outty = self.query_one(TextLog)
+            outty.write(response["choices"][0]["message"]["content"])
 
     def compose(self) -> ComposeResult:
         """Create child widgets"""

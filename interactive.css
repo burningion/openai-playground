@@ -10,7 +10,7 @@ GPTPrompt {
 GPTResponse {
     layout: horizontal;
     background: $boost;
-    height: 5;
+    height: 35;
     margin: 1;
     padding: 1
 }

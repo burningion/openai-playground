@@ -18,7 +18,7 @@ class GPTPrompt(Static):
             inny = self.query_one(Input)
             prompt = inny.value
             response = openai.ChatCompletion.create(model="gpt-4", messages=[
-                {"role": "user", "prompt": prompt}])
+                {"role": "user", "content": prompt}])
             
 
     def compose(self) -> ComposeResult:

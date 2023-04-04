@@ -2,10 +2,18 @@
 
 Does what it says on the label. You'll need an OpenAI API key, and it should be set as an environment variable named `OPENAI_API_KEY` within Gitpod.
 
-Here's what the example prompt returns:
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/burningion/openai-playground)
+
+# Example prompt / response
+
+Start the prompt:
 
 ```bash
 $ python3 playground.py 
+```
+
+# Output from ChatGPT
+
 To write a FastAPI application that accepts file uploads and stores them on Amazon S3, you need to have the following installed in your project:
 
 1. Install FastAPI and its dependencies

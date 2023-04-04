@@ -1,0 +1,9 @@
+vscode: 
+  extensions:
+    - ms-python.isort
+    - ms-python.python
+    - charliermarsh.ruff
+    
+tasks:
+  - name: OpenAI interface
+    command: pip install -r requirements.txt
